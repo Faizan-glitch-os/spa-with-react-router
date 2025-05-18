@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import classes from "./header.module.css";
 
 export default function Header() {
   return (
@@ -7,10 +8,21 @@ export default function Header() {
         <ul>
           <li>My Page</li>
           <li>
-            <Link to="/">Homepage</Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? classes.active : null)}
+              end
+            >
+              Homepage
+            </NavLink>
           </li>
           <li>
-            <Link to="/products">Products</Link>
+            <NavLink
+              to="/products"
+              className={({ isActive }) => (isActive ? classes.active : null)}
+            >
+              Products
+            </NavLink>
           </li>
         </ul>
       </nav>
